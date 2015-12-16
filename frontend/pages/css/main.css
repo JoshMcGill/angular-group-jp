@@ -1,0 +1,12 @@
+.navbar-default{
+    background-color: skyblue;
+    border-color: deepskyblue;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    background-color: cadetblue;
+}
+
+.navbar-default .navbar-brand{
+    color: white;   
+}
