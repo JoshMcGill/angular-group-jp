@@ -1,15 +1,18 @@
 <form class="form-signin">
     <h2 class="form-signin-heading">Sign Up</h2>
     <label for="inputUsername" class="sr-only">UserName</label>
-    <input type="" id="" class="form-control" placeholder="User Name" required autofocus>
+    <input ng-model="user.name" type="" id="" class="form-control" placeholder="Name" required autofocus>
+    
+    <br />
+    
+    <label for="inputUsername" class="sr-only">UserName</label>
+    <input ng-model='user.username' type="" id="" class="form-control" placeholder="User Name" required >
     <br/>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input ng-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
     <label for="inputPassword" class="sr-only">Password</label>
     <input ng-model="reEnter" type="password" id="inputPassword" class="form-control" placeholder="Re-Enter Password" required>
     <p>{{errorMessage}}</p>
-    <button ng-click="signup()" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button ng-click="signup(user)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>
-
-

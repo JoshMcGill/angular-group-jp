@@ -5,10 +5,11 @@ app.controller('SignupController', ['$scope', '$location', 'UserService', functi
     $scope.errorMessage = "";
 
     $scope.signup = function (user) {
-        if ($scope.password === $scope.reEnter) {
+        console.log(user);
+        if ($scope.user.password === $scope.reEnter) {
             $scope.errorMessage = "Passwords Matched!"
             
-            UserService.login(user).then(function (response){
+            UserService.signup(user).then(function (response){
                 $location.path('/login');
             }, function(respones){
                 alert('There was an error signing up, Try again!') 

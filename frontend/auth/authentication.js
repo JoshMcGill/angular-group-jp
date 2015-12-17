@@ -37,6 +37,8 @@ app.service('UserService', ['$http', 'TokenService', function ($http, TokenServi
     this.logout = function () {
         TokenService.removetoken();
     }
+    
+    this.userName = 'User';
 }])
 
 app.factory("AuthInterceptor", ["$q", "$location", "TokenService", function ($q, $location, TokenService) {
