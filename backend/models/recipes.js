@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var user = require('./user').schema;
+var user = require('./users').schema;
 
 var Schema = mongoose.Schema;
 
@@ -16,14 +16,14 @@ var Recipe = new Schema({
     required: true,
     type: String
   },
-  visible: {
-    type: Boolean,
-    default: false
-  },
   user: {
     type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  added: {
+    type: [Schema.Types.ObjectId],
     ref: 'User'
   }
 });
 
-module.exports = mongoose('Recipes', Recipe);
+module.exports = mongoose.model('Recipes', Recipe);

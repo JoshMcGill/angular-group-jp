@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bycrypt');
+var bcrypt = require('bcrypt');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
@@ -13,6 +13,10 @@ var User = new Schema({
   password: {
     type: String,
     required: true
+  },
+  following: {
+    type: [Schema.Types.ObjectId],
+    ref: 'User'
   }
 });
 
@@ -32,4 +36,4 @@ User.pre('save', function(next){
 });
 
 
-module.exports = mongoose('User', User);
+module.exports = mongoose.model('User', User);
