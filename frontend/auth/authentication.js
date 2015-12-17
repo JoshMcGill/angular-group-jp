@@ -12,7 +12,7 @@ app.service('TokenService', [function () {
             return localStorage[userToken];
         }
         //Remove Token
-    this.removetoken = function () {
+    this.removeToken = function () {
         localStorage.removeItem(userToken);
     }
 }])
@@ -35,10 +35,10 @@ app.service('UserService', ['$http', 'TokenService', function ($http, TokenServi
         }
         // Logout
     this.logout = function () {
-        TokenService.removetoken();
+        TokenService.removeToken();
     }
     
-    this.userName = 'User';
+    this.userName = null;
 }])
 
 app.factory("AuthInterceptor", ["$q", "$location", "TokenService", function ($q, $location, TokenService) {
