@@ -17,7 +17,7 @@ app.service('TokenService', [function () {
     }
 }])
 
-app.service('UserService', ['$http', 'TokenService', function ($http, TokenService) {
+app.service('UserService', ['$http', 'TokenService', '$location', function ($http, TokenService, $location) {
     var baseUrl = "http://localhost:5000/auth"
 
     // Signup
@@ -36,6 +36,10 @@ app.service('UserService', ['$http', 'TokenService', function ($http, TokenServi
         // Logout
     this.logout = function () {
         TokenService.removeToken();
+    }
+    
+    this.isAuthenticated = function() {
+        return !!TokenService.getToken();
     }
     
     this.userName = null;
