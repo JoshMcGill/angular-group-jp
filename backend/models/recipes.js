@@ -10,7 +10,7 @@ var Recipe = new Schema({
   },
   ingredients: {
     required: true,
-    type: [String],
+    type: String,
   },
   directions: {
     required: true,

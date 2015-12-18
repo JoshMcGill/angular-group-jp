@@ -14,4 +14,8 @@ app.config(function ($routeProvider) {
             templateUrl: 'pages/sign-up.html',
             controller: 'SignupController'
         })
+        .when('/create', {
+            templateUrl: 'pages/createRecipe.html',
+            controller: 'CreateRecipeController'
+        })
 })
