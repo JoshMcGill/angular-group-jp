@@ -12,12 +12,12 @@ app.service('TokenService', [function () {
             return localStorage[userToken];
         }
         //Remove Token
-    this.removetoken = function () {
+    this.removeToken = function () {
         localStorage.removeItem(userToken);
     }
 }])
 
-app.service('UserService', ['$http', 'TokenService', function ($http, TokenService) {
+app.service('UserService', ['$http', 'TokenService', '$location', function ($http, TokenService, $location) {
     var baseUrl = "http://localhost:5000/auth"
 
     // Signup
@@ -35,10 +35,14 @@ app.service('UserService', ['$http', 'TokenService', function ($http, TokenServi
         }
         // Logout
     this.logout = function () {
-        TokenService.removetoken();
+        TokenService.removeToken();
     }
     
-    this.userName = 'User';
+    this.isAuthenticated = function() {
+        return !!TokenService.getToken();
+    }
+    
+    this.userName = null;
 }])
 
 app.factory("AuthInterceptor", ["$q", "$location", "TokenService", function ($q, $location, TokenService) {
