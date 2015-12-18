@@ -1,0 +1,10 @@
+<form class="new-recipe">
+    <h2 class="form-signin-heading">Create a Recipe</h2>
+    <input ng-model="recipe.name" id="inputRecipeName" class="form-control" placeholder="Recipe Name" required autofocus>
+    <br />
+    <textarea ng-model='recipe.ingredients' class="form-control" placeholder="Ingredients" required ></textarea>
+    <br/>
+    <textarea ng-model='recipe.directions' class="form-control" placeholder="Directions" required ></textarea>
+    <br />
+    <button ng-click="createRecipe()" class="btn btn-lg btn-primary btn-block" type="submit">CreateRecipe</button>
+</form>
