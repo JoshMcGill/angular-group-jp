@@ -24,7 +24,7 @@ userRouter.route('/:userId')
 
     userRouter.route('/')
       .get(function (req, res) {
-          User.findById( req.params.user._id, function (err, user) {
+          User.findById( req.user._id, function (err, user) {
               if (err) res.status(500).send(err);
               res.send(user);
           });
